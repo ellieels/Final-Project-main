@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Westridge Ceramics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/297392fead.js" crossorigin="anonymous"></script>
+    
+</head>
+<body class="body">
+  
+  <%- include('partials/navbar') %> 
+  <div style="display: none" class="popup-overlay"></div>
+
+  <div class="page-top">
+    <h2 class="page-title">Courses</h2>
+  </div>
+  
+  <a href="/account" class="back-button"><i class="fa-solid fa-chevron-left"></i></a>
+  
+   <h1 class="add-course">Add Course</h1>
+   
+   <form id="course-form" action="/postcourse" method="post" class="course-form">
+
+   <div>
+      <label for="course-name"><span style="font-weight: 600;">Course Name:</span></label> 
+      <input type="text" id="course-name" name="name" required><br>
+    </div>
+    <div>
+      <label for="course-code"><span style="font-weight: 600;">Course Code:</span></label> 
+      <input type="text" id="course-code" name="code" required><br>
+      <br>
+      
+    </div>
+      <input type="submit" class="submit-button" value="Add">
+ </form>
+  <h1 class="sub-title">Courses:</h1>
+     
+
+
+
+<div class="course-list">
+  <% courses.forEach((course, index) => { %>
+    <div class="coursePost" id="course-popupTrigger-<%= index %>">
+      <h2 class="course-title"><%= course.name %></h2>
+      <p class="course-code">Code: <%= course.code %></p>
+    </div>
+  <% }) %>
+</div>
+
+<% courses.forEach((course, index) => { %>
+  <div id="course-popup-<%= index %>" class="course-popup">
+    <span class="close">×</span>
+    <div class="popup-content">
+      <h2 class="course-popup-title"><%= course.name %></h2>
+      <p class="course-code">Code: <%= course.code %></p>
+       <br>
+    <br>
+    <h2 class="popup-title">Students:</h2>
+    <br>
+    <ul>
+  <% if (course.students && course.students.length > 0) { %>
+    <% course.students.forEach((student) => { %>
+      <li>
+        <a href="/artist/<%= student._id %>" class="student-username"><%= student.username %></a>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No students enrolled yet.</li>
+  <% } %>
+</ul>
+    
+    </div>
+  </div>
+<% }) %>
+
+ 
+ 
+ 
+  <script src="script.js"></script>
+  
+</body>
+</html>

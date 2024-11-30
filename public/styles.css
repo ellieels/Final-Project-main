@@ -1,0 +1,916 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Concert+One&family=Kumbh+Sans:wght,YOPQ@100..900,116&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Shrikhand&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body {
+  height: 100%;
+  font-family: 'Montserrat';
+  background-color: #FFFFFF;
+} 
+
+/*-------HOME-------*/
+
+.home-top{
+  text-align: center;
+  border-bottom: 0.15vw solid #c9c5c5;
+  margin: 0 3vw 0 3vw;
+}
+
+.home-title{
+  font-family: 'Newsreader';
+  font-size: 4.3vw;
+  font-weight: 300;
+  margin: 10vw 0 5vw 0;
+  color: #333;
+}
+
+.home-button-group{
+  display: flex;
+  margin: 3vw 30vw 3vw 30vw;
+}
+
+.page-button{
+  background-color: #47763B;
+  color: #F9F4F4;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3vw;
+  margin: 1vw 2vw 1vw 2vw;
+  border-radius: 2vw;
+  padding: 1.3vw 1.5vw 1.3vw 1.5vw;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.upload-button{
+  background-color: #47763B;
+  color: #F9F4F4;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3vw;
+  /*margin: 1vw 4vw 1vw 7vw;*/
+  border-radius: 2vw;
+  padding: 1vw 2.2vw 1vw 2.2vw;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+
+.page-button:hover, .upload-button:hover{
+  background-color: #2c4f24;
+  color: #F9F4F4;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.submit-button{
+  background-color: #47763B;
+  color: #F9F4F4;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3vw;
+  margin: 0 9.8vw;
+  border-radius: 2vw;
+  padding: 1vw 3vw 1vw 3vw;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.glaze-submit-button{
+  background-color: #47763B;
+  color: #F9F4F4;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3vw;
+  margin: 0 42vw;
+  border-radius: 2vw;
+  padding: 1vw 3vw 1vw 3vw;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.class-section{
+  display: flex;
+  margin: 2vw 0 2vw 1.5vw;
+}
+
+.class-title-name{
+  margin: 1vw 2vw 0 20vw;
+  width: 10vw;
+  color: #47763B;
+  font-size: 1.2vw
+}
+
+.class-description{
+  width: 44vw;
+  margin: 1vw 9vw 1vw 3vw;
+  font-size: 1.2vw;
+}
+
+
+/*-------GALLERY-------*/
+
+.page-top{
+  border-bottom: 0.15vw solid #c9c5c5;
+  margin: 2vw 3vw 0 3vw;
+  display: flex;
+}
+
+.page-title{
+  font-family: 'Newsreader';
+  font-size: 3.5vw;
+  margin: 1vw 0 1vw 0;
+  font-weight: 300;
+  color: #333;
+}
+
+#searchInput{
+  width: 30vw;
+  height: 3.5vw;
+  border-radius: 2vw;
+  margin: auto 22vw;
+  padding: 1vw;
+  border: 0.2vw solid #c9c5c5;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  margin: 2vw 1.5vw 0 1.5vw;
+}
+
+.post {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  margin: 1vw 0 1vw 0;
+  transition: transform 0.2s;
+}
+
+.post img {
+  transition: transform 0.3s;
+}
+
+.post:hover img {
+  transform: scale(1.05);
+}
+
+
+.image-container {
+  width: 20vw;
+  height: 20vw; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5vw;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F9F4F4;
+  border-radius: 1.5vw;
+  padding: 2vw;
+  z-index: 1000;
+  width: 70vw;
+  height: 40vw;
+}
+
+.popup-display{
+  display: flex;
+}
+
+.popup-image-container {
+  width: 35vw;
+  height: 35vw;
+  margin: 0.5vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5vw;
+}
+
+.popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-content{
+  width: 25vw;
+  margin: 1vw 2vw;
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.next-image{
+  background: none;
+  position: absolute;
+  top: 18.5vw;
+  left: 35vw;
+  z-index: 9999;
+  border: none;
+  font-size: 2vw;
+}
+
+.post-date{
+  font-size: 0.9vw;
+  position: absolute;
+  top: 3vw;
+  right: 4vw;
+  background: #F9F4F4;
+  height: 1vw;
+  width: 10vw;
+}
+
+.post-title{
+  font-size: 2.2vw;
+  font-weight: 500;
+  margin: 0;
+}
+
+.glaze-post-title{
+  font-size: 2.2vw;
+  font-weight: 500;
+  margin-top: 1vw;
+}
+
+.post-class, .post-glaze, .post-author, .post-description{
+  font-size: 1.2vw;
+}
+
+.post-author{
+  margin: 0;
+}
+
+
+.associated-posts{
+  display: flex;
+}
+
+.piece-image-container{
+  width: 18vw;
+  height: 18vw; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5vw;
+  margin-bottom: 0.5vw;
+}
+
+.associated-posts{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin-top: 2vw;
+  text-align: center;
+}
+
+.example-pieces{
+  margin: 1vw 1vw 2vw 1vw;
+  
+}
+
+.delete-button, .edit-button {
+  color: black;
+  border: 0.2vw solid black;  
+  height: 40px; /* Adjust size */
+  width: 40px; /* Adjust size */
+  background: none;
+  border-radius: 50%; /* Make the button round */
+  padding: 8px; /* Adjust padding for better alignment */
+  font-size: 18px; /* Adjust font size */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease; 
+  margin-right: 1vw;
+}
+
+.delete-button:hover, .edit-button:hover {
+  background-color: #d9ded7;
+  color: #47763B; 
+  border-color: #47763B; 
+}
+
+
+/*-------GLAZES-------*/
+
+.glaze-post-list {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  justify-items: center;
+  margin: 2vw 1.5vw 0 1.5vw;
+}
+
+.glazePost {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  margin: 1vw;
+  overflow: hidden;
+}
+
+.glazePost .glaze-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: black;
+  font-size: 24px; /* Adjust to fit your needs */
+  z-index: 2;
+}
+
+.glazePost::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+
+.glazePost:hover .glaze-title {
+  opacity: 1;
+}
+
+.glazePost:hover::before {
+  opacity: 0.8; /* The white background opacity */
+}
+
+.glaze-title{
+  font-size: 2px;
+}
+
+.glaze-image-container {
+  height: 8vw;
+  width: 8vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2vw;
+}
+
+.post-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.display-flex{
+  display:flex;
+}
+
+.glaze-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F9F4F4;
+  border-radius: 1.5vw;
+  padding: 2vw;
+  z-index: 1000;
+  width: 70vw;
+  height: 40vw;
+  overflow-y: auto; /* Add overflow property to make the popup scrollable */
+}
+
+.popup-display{
+  display: flex;
+}
+
+.popup-image-container {
+  width: 35vw;
+  height: 35vw;
+  margin: 0.5vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5vw;
+}
+
+.glaze-popup-image-container{
+  width: 20vw;
+  height: 20vw;
+  margin: 0.5vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5vw;
+  margin: 2vw;
+}
+
+.glaze-popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-content {
+  width: 25vw;
+  margin: 1vw 2vw;
+  overflow-y: auto; /* Add overflow property to make content scrollable */
+  max-height: calc(40vw - 4vw - 20px); /* Adjust max-height based on the popup height and padding */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.glaze-title{
+  font-size: 1.8vw;
+}
+
+
+/*-------ACCOUNT-------*/
+
+
+.logout-button{
+  color: #333;
+  border: 0.2vw solid #c9c5c5;
+  padding: 0.5vw;
+  border-radius: 1.5vw;
+  position: absolute;
+  top: 9vw;
+  right: 3vw;
+  font-size: 1vw;
+}
+
+.logout-button:hover{
+  color: #333;
+  border: 0.2vw solid #c9c5c5;
+  padding: 0.5vw;
+  border-radius: 1.5vw;
+  position: absolute;
+  background-color: #d9ded7;
+  top: 9vw;
+  right: 3vw;
+  font-size: 1vw;
+  text-decoration: none;
+}
+
+.upload-art-button{
+  position: absolute;
+  top: 16vw;
+  left: 3.75vw;
+}
+
+.join-course-button{
+  position: absolute;
+  top: 16vw;
+  left: 17vw;
+}
+
+.upload-glaze-button{
+  position: absolute;
+  top: 16vw;
+  right: 30vw;
+}
+
+.course-button{
+  position: absolute;
+  top: 16vw;
+  right: 18.5vw;
+}
+
+.add-teacher-button{
+  position: absolute;
+  top: 16vw;
+  right: 4vw;
+}
+
+.account-post {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  margin: 1vw 0 1vw 0;
+  transition: transform 0.2s;
+}
+
+.account-post img {
+  transition: transform 0.3s;
+}
+
+.account-post:hover img {
+  transform: scale(1.05);
+}
+
+.account-list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  margin: 2vw 1.5vw 0 1.5vw;
+}
+
+.account-subtitle{
+  font-size: 2.8vw;
+  margin-left: 4vw;
+}
+
+/*-------UPLOAD ART-------*/
+
+.uploadsections{
+  margin: 0 6vw 0 22vw;
+  display: flex;
+  
+}
+
+.section1, .section2{
+  margin: 3vw 2vw 3vw 2vw;
+}
+
+.back-button {
+  position: absolute;
+  top: 14vw; /* Responsive positioning */
+  left: 3vw; /* Responsive positioning */
+  font-size: 2vw; /* Responsive font size */
+  color: black;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  position: absolute;
+  top: 14vw; /* Responsive positioning */
+  left: 3vw; /* Responsive positioning */
+  font-size: 2vw; /* Responsive font size */
+  color: black;
+  text-decoration: none;
+}
+
+.subtitle{
+  font-size: 2.5vw;
+  margin: 1.8vw 0 0 36vw;
+}
+
+
+/*-------NAVBAR-------*/
+
+.navbar {
+    align-items: center;
+    display: flex;
+}
+
+.logo{
+  width: 4vw;
+  margin: 0 0.5vw 0 0;
+}
+
+.Clogo{
+  width: 10vw;
+  margin: 0 0.5vw 0 0;
+}
+
+.nav-button {
+  background-color: transparent;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  font-size: 1vw;
+  letter-spacing: 0.1vw;
+  margin: 1vw 2vw 1vw 2vw;
+  border-radius: 1.4vw;
+  padding: 0.7vw;
+}
+
+.nav-button:focus, .nav-button:hover {
+  text-decoration: none;
+  outline: none;
+  color: #47763B;
+}
+
+.nav-button-group{
+  display: flex;
+  margin-top: 1vw;
+}
+
+/*-------LOGIN + REGISTER-------*/
+
+.login-body, .register-body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1599586298259-3164a6d49543?q=80&w=2730&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 40vw; 
+    margin: 0 25vw 0 25vw;
+    background-color: transparent;
+    padding: 3vw;
+    text-align: center;
+}
+
+.login-title {
+    text-align: center;
+    color: #333;
+    font-size: 3vw; /* Increase font size for the title */
+    margin-bottom: 3vw; /* Add more spacing below the title */
+}
+
+.login-form {
+    margin-top: 2vw;
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 1vw; /* Add more spacing between labels */
+    color: #333;
+    font-size: 1.2vw; /* Increase font size for labels */
+}
+
+.login-input {
+    width: 20vw;
+    padding: 1vw; /* Increase padding for larger input fields */
+    margin-bottom: 2vw; /* Add more spacing between input fields */
+    border: 0.2px solid #c9c5c5;
+    border-radius: 1vw;
+    font-size: 1.2vw; /* Increase font size for input fields */
+}
+
+.register{
+  color: #47763B;
+}
+.register:hover{
+  text-decoration: none;
+}
+
+.login-text {
+    margin-top: 20px; /* Add more spacing above the paragraph */
+    text-align: center;
+  color: #333;
+}
+
+.register{
+    text-decoration: none; /* Remove underline */
+}
+
+.code-caption{
+  color: brown;
+  padding-bottom: 10px;
+}
+
+/*-----FILTER PANEL-----*/
+.open-btn {
+  height: 3vw;
+  width: 4.5vw;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+
+.filter-panel {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  right: -300px; /* Hidden initially */
+  background-color: #FFFFFF;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+}
+
+.filter-panel h2 {
+  margin-top: 0;
+}
+
+.filter-options input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.filter-options input[type="checkbox"]:checked {
+  background-color: #4CAF50; /* Green color for checked */
+}
+
+/* Close button styling */
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-btn:hover {
+  color: black; 
+  border: none;
+}
+
+/* Clear all filters button - Modern and minimal */
+.clear-btn {
+  background-color: #f4f4f4; /* Light gray background for simplicity */
+  color: #333; /* Dark text color */
+  border: none; /* No borders for a clean look */
+  padding: 10px 20px; /* Comfortable padding */
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded corners for a modern feel */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.clear-btn:hover {
+  background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+
+
+
+
+/*-----TEACHER/COURSE FORM-----*/
+.add-teacher, .add-course {
+  text-align: center;
+  margin: 2vw 0 2vw 0;
+}
+
+.teacher-form, .course-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-title{
+  position: absolute;
+  top: 32vw;
+  left: 3.5vw;
+}
+
+/*----COURSE-----*/
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 10;
+}
+
+.course-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 20;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3-column grid */
+  gap: 20px; /* Spacing between grid items */
+  padding: 20px;
+}
+
+.coursePost {
+  background-color: #f9f9f9;
+  border: 2px solid #ccc; /* Outline around each element */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  margin: 4vw 2vw 4vw 2vw;
+}
+
+.coursePost:hover {
+  background-color: #e0e0e0; /* Slightly darker color on hover */
+}
+
+.course-title {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.course-code {
+  font-size: 1.2em;
+  color: #666;
+}
+
+
+/*-- EDIT --*/
+
+.edit-photo {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  margin: 1vw 0 1vw 0;
+  transition: transform 0.2s;
+}
+
+
+.edit-image-container {
+  height: 8vw;
+  width: 8vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2vw;
+  margin-right: 2vw;
+}
+
+.edit-delete{
+  height: 40px; /* Adjust size */
+  width: 40px; /* Adjust size */
+  background: none;
+  border: none;
+  border-radius: 50%; /* Make the button round */
+  color: black;
+  padding: 8px; /* Adjust padding for better alignment */
+  font-size: 18px; /* Adjust font size */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  margin-right: 1vw;
+}
+
+.edit-delete:hover{
+  color: #47763B; 
+  transition: color 0.2s ease;
+}
+
+
+
+

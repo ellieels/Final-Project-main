@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Westridge Ceramics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/297392fead.js" crossorigin="anonymous"></script>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Concert+One&family=Kumbh+Sans:wght,YOPQ@100..900,116&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Shrikhand&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+
+    
+</head>
+<body class="body">
+  
+  <%- include('partials/navbar') %> 
+
+  <div class="page-top">
+    <h2 class="page-title">My Art</h2>
+    
+    <p><a href="/logout" class="logout-button">Log Out</a></p>
+  </div>
+  
+    
+  <div class="home-button-group">
+    <p><a href="/uploadArt" class="upload-art-button upload-button" >Upload Art</a></p>
+    
+    <p><a href="/joinCourse" class="join-course-button upload-button">Join Course</a></p>
+    
+   <% if (user.role == "teacher" || user.role == "admin") { %>
+      
+    <p><a href="/uploadGlaze" class="upload-glaze-button upload-button">Upload Glaze</a></p>
+    <p><a href="/course" class="course-button upload-button">Courses</a></p>
+    <p><a href="/addteacher" class="add-teacher-button upload-button">Add Teacher</a></p>
+    
+    <% } %>
+    
+  </div>
+  
+  <div class="user-posts">
+   <br>
+
+    
+     <div class="post-list account-list">
+      <% userPosts.forEach((post) => { %>
+        <div class="post" id="popupTrigger-<%= post._id %>">
+          <div class="image-container">
+            <img class="post-image" src="/images/<%= post.imageFiles[0] %>" alt="">
+          </div>
+          <p class="post-title"><%= post.title %></p>
+          <% if (post.author) { %>
+            <p class="post-name"><%= post.author.username %></p>
+          <% } else { %>
+            <p>Unknown Author</p>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  
+  <% userPosts.forEach((post, index) => { %>
+    <div id="popup-<%= post._id %>" class="popup">
+    <div class="popup-display">
+      <span class="close">&times;</span>
+      <div class="popup-image-container">
+        <img class="popup-image" src="/images/<%= post.imageFiles[0] %>" alt="">
+      </div>
+      <button class="next-image" data-post-index="<%= index %>"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="popup-content">
+       <br>
+        <h2 class="post-title"><%= post.title %></h2>
+        <% if (post.author) { %>
+          <p class="post-author"><%= post.author.username %></p>
+        <% } else { %>
+          <p>Unknown Author</p>
+        <% } %>
+        <p class="post-date"><%= post.createdAt %></p>
+        <p class="post-class"><span style="font-weight: 600;">Class:</span>  <%= post.class %></p>
+        <p class="post-glaze"><span style="font-weight: 600;">Glaze(s):</span>  <%= post.glaze.join(', ') %></p>
+        <p class="post-description"><%= post.description %></p>
+        
+        <% if (user.username === post.author.username || user.role == "teacher" || user.role == "admin") { %>
+          <a href="/editPost/<%= post._id %>" class="edit-button"><i class="fa-solid fa-pen-to-square"></i></a>
+          <form action="/deletePost/<%= post._id %>" method="POST" style="display: inline;">
+            <button type="submit" class="delete-button"><i class="fa-solid fa-trash"></i></button>
+          </form>
+        
+        <% } %>
+        
+    
+        
+      </div>
+    </div>
+    </div>
+  <% }) %>
+  <script>var posts = <%- JSON.stringify(userPosts) %></script>
+  <script src="script.js"></script>
+  
+  
+</body>
+</html>
